@@ -1,12 +1,12 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import CalcIcon from '@/components/CalculatorIcon'; // Import the Calculator Icon component
-import BarcodeIcon from '@/components/BarcodeIcon'; // Import the Barcode Icon component
-import InfoIcon from '@/components/InfoIcon'; // Import the Info Icon component
-import LinksIcon from '@/components/LinksIcon'; // Import the Links Icon component
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import CalcIcon from '@/components/CalculatorIcon';
+import BarcodeIcon from '@/components/BarcodeIcon';
+import InfoIcon from '@/components/InfoIcon';
+import LinksIcon from '@/components/LinksIcon';
+import TopNav from '@/components/TopNav'; // Import the TopNav component
 
-// Define a custom tab label component
 const TabLabel: React.FC<{ focused: boolean; title: string }> = ({ focused, title }) => {
   return (
     <View style={styles.tabLabelContainer}>
@@ -15,7 +15,6 @@ const TabLabel: React.FC<{ focused: boolean; title: string }> = ({ focused, titl
   );
 };
 
-// Define a custom tab icon component
 const TabIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ color: string }> }> = ({ focused, IconComponent }) => {
   return (
     <IconComponent color={focused ? 'white' : 'black'} />
@@ -24,62 +23,68 @@ const TabIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ color: str
 
 export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarInactiveTintColor: 'black',
-        headerShown: false,
-        tabBarStyle: {
-          backgroundColor: '#F1BD15',
-          height: '9%',
-          padding: 0
-        },
-        tabBarLabel: ({ focused, children }) => (
-          <TabLabel focused={focused} title={children as string} />
-        ),
-      }}
-    >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Calculation',
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} IconComponent={CalcIcon} />
+    
+    <SafeAreaView style={styles.container}>
+    <TopNav />
+      <Tabs
+        screenOptions={{
+          tabBarInactiveTintColor: 'black',
+          headerShown: false,
+          tabBarStyle: {
+            backgroundColor: '#F1BD15',
+            height: '9%',
+            padding: 0
+          },
+          tabBarLabel: ({ focused, children }) => (
+            <TabLabel focused={focused} title={children as string} />
           ),
         }}
-      />
-      <Tabs.Screen
-        name="electro_fusion"
-        options={{
-          title: 'Electro-Fusion',
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} IconComponent={BarcodeIcon} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="information"
-        options={{
-          title: 'Information',
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} IconComponent={InfoIcon} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="links"
-        options={{
-          title: 'Links',
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} IconComponent={LinksIcon} />
-          ),
-        }}
-      />
-    </Tabs>
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: 'Calculation',
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} IconComponent={CalcIcon} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="electro_fusion"
+          options={{
+            title: 'Electro-Fusion',
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} IconComponent={BarcodeIcon} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="information"
+          options={{
+            title: 'Information',
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} IconComponent={InfoIcon} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="links"
+          options={{
+            title: 'Links',
+            tabBarIcon: ({ focused }) => (
+              <TabIcon focused={focused} IconComponent={LinksIcon} />
+            ),
+          }}
+        />
+      </Tabs>
+    </SafeAreaView>
   );
 }
 
-
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   tabLabelContainer: {
     alignItems: 'center',
     justifyContent: 'center',

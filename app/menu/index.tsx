@@ -5,9 +5,9 @@ import React from 'react'
 
 const Index = () => {
   return (
-    <SafeAreaView  style={{ flex: 1 }}>
+    <View>
     <Text>Calculation Page</Text>
-    </SafeAreaView>
+    </View>
   )
 }
 
