@@ -5,9 +5,9 @@ import React from 'react'
 
 const Links = () => {
   return (
-    <SafeAreaView  style={{ flex: 1 }}>
+    <View  style={{ flex: 1 }}>
     <Text>Links Page</Text>
-    </SafeAreaView>
+    </View>
   )
 }
 

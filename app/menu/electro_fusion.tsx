@@ -5,9 +5,9 @@ import React from 'react'
 
 const ElectroFusion = () => {
   return (
-    <SafeAreaView  style={{ flex: 1 }}>
+    <View  style={{ flex: 1 }}>
     <Text>Electro Fusion Page</Text>
-    </SafeAreaView>
+    </View>
   )
 }
 
