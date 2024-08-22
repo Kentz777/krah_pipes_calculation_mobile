@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "krah_pipes_calculation_app",
+    "name": "Krah Pipes Calculation",
     "slug": "krah_pipes_calculation_app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "Krah",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/krah_logo_TM.png",
+      "resizeMode": "native",
+      "backgroundColor": "#F1BD15"
     },
     "ios": {
       "supportsTablet": true
