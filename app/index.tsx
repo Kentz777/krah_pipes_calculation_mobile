@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import Loader from '../components/Loader'; // A
+import Button from '../components/Button';
+
+import cpImage from '../assets/images/screen.png'
 
 const Index: React.FC = () => {
   const router = useRouter();
@@ -29,12 +32,20 @@ const Index: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>Whereas disregard and contempt for human rights have resulted</Text>
-      <Button
+      <Text style={styles.text}>WELCOME</Text>
+      {/* <Button
         title="Go to Tabs Index"
         onPress={() => router.push('/menu')}
+      /> */}
+      <Image style={styles.image}
+        source={cpImage}
       />
-    </SafeAreaView>
+      <Text style={styles.text2}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officia in, rerum ipsam a rem.
+      </Text>
+      <Button name='Continue'/>
+    </SafeAreaView >
+
   );
 };
 
@@ -48,7 +59,20 @@ const styles = StyleSheet.create({
     marginHorizontal: '8%',
   },
   text: {
-    fontSize: 20,
+    fontSize: 32,
     fontFamily: 'Rubik',
+    marginBottom: 80,
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  image: {
+    marginBottom: 10
+  },
+  text2: {
+    fontSize: 16,
+    fontFamily: 'Rubik',
+    textAlign: 'center',
+    marginBottom: 50,
+    color: 'black'
   },
 });
