@@ -1,11 +1,12 @@
+//Links Page
 import { View, Text, StyleSheet} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react'
 
-const sample = () => {
+const Links = () => {
   return (
     <SafeAreaView  style={{ flex: 1 }}>
-    <Text>Page 2</Text>
+    <Text>Links Page</Text>
     </SafeAreaView>
   )
 }
@@ -22,4 +23,4 @@ const styles = StyleSheet.create({
     },
   });
   
-export default sample
+export default Links

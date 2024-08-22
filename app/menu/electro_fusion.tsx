@@ -3,10 +3,10 @@ import { View, Text, StyleSheet} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react'
 
-const Index = () => {
+const ElectroFusion = () => {
   return (
     <SafeAreaView  style={{ flex: 1 }}>
-    <Text>Calculation Page</Text>
+    <Text>Electro Fusion Page</Text>
     </SafeAreaView>
   )
 }
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     },
   });
   
-export default Index
+export default ElectroFusion
