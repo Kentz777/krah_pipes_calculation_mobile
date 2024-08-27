@@ -42,7 +42,7 @@ const Index: React.FC = () => {
         <Text style={styles.text2}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officia in, rerum ipsam a rem.
         </Text>
-        <Button name='Continue' route='/menu' />
+        <Button name='Continue' route='/page2' />
       </View>
     </SafeAreaView>
   );

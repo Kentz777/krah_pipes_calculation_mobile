@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router'; // Import the router hook
+
+const { width, height } = Dimensions.get('window');
 
 interface ButtonProps {
   name: string;
@@ -27,8 +29,8 @@ const Button: React.FC<ButtonProps> = ({ name, route }) => {
 const styles = StyleSheet.create({
   continueButton: {
     backgroundColor: '#1E1E1E',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingVertical: height * 0.01,
+    paddingHorizontal: width * 0.12,
     borderRadius: 30,
   },
   text: {
