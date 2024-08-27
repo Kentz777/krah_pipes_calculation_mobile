@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
+    fontFamily: 'Rubik',
+    fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
   },
