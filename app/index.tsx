@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'expo-router';
-import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import Loader from '../components/Loader'; // A
+import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
+import Loader from '../components/Loader';
 import Button from '../components/Button';
-import TopNav from '../components/TopNav';
+import CustomHeader from '@/components/CustomHeader';
 
 import cpImage from '../assets/images/screen.png';
+
+const { width, height } = Dimensions.get('window');
 
 const Index: React.FC = () => {
   const router = useRouter();
@@ -31,47 +33,50 @@ const Index: React.FC = () => {
     return <Loader />;
   }
 
-
-
   return (
-    <SafeAreaView>
-      <TopNav />
+    <SafeAreaView style={styles.safeArea}>
+      <CustomHeader />
       <View style={styles.container}>
         <Text style={styles.text}>WELCOME</Text>
         <Image style={styles.image} source={cpImage} />
         <Text style={styles.text2}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officia in, rerum ipsam a rem.
         </Text>
-        <Button name='Continue' route='/menu/' />
+        <Button name='Continue' route='/menu' />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Index;
-
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   container: {
-    // flex: 1,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginHorizontal: '8%',
+    paddingHorizontal: '5%',
+    paddingVertical: '10%',
   },
   text: {
-    fontSize: 36,
+    fontSize: width * 0.08, // Responsive font size
     fontFamily: 'Rubik',
-    marginBottom: 60,
-    fontWeight: 'bold',
+    marginBottom: height * 0.05, // Responsive margin
+    fontWeight: '900',
     color: 'black',
+    textAlign: 'center',
   },
   image: {
-    marginBottom: 20
+    marginBottom: height * 0.02, // Responsive margin
   },
   text2: {
-    fontSize: 16,
+    fontSize: width * 0.04, // Responsive font size
     fontFamily: 'Rubik',
     textAlign: 'center',
-    marginBottom: 50,
+    marginBottom: height * 0.05, // Responsive margin
     color: 'black',
   },
 });
+
+export default Index;

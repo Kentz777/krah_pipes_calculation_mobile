@@ -1,11 +1,13 @@
-import { Tabs } from 'expo-router';
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Dimensions } from 'react-native';
+import { Tabs } from 'expo-router';
 import CalcIcon from '@/components/CalculatorIcon';
 import BarcodeIcon from '@/components/BarcodeIcon';
 import InfoIcon from '@/components/InfoIcon';
 import LinksIcon from '@/components/LinksIcon';
-import TopNav from '@/components/TopNav'; // Import the TopNav component
+import TopNav from '@/components/TopNav';
+
+const { width, height } = Dimensions.get('window'); // Get screen width and height
 
 const TabLabel: React.FC<{ focused: boolean; title: string }> = ({ focused, title }) => {
   return (
@@ -23,17 +25,16 @@ const TabIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ color: str
 
 export default function TabLayout() {
   return (
-    
     <SafeAreaView style={styles.container}>
-    <TopNav />
+      <TopNav />
       <Tabs
         screenOptions={{
           tabBarInactiveTintColor: 'black',
           headerShown: false,
           tabBarStyle: {
             backgroundColor: '#F1BD15',
-            height: '9%',
-            padding: 0
+            height: height * 0.09, // Adjust height based on screen height
+            padding: 0,
           },
           tabBarLabel: ({ focused, children }) => (
             <TabLabel focused={focused} title={children as string} />
@@ -90,19 +91,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabLabel: {
-    fontSize: 10,
-    color: 'black', 
+    fontSize: width * 0.03, // Responsive font size
+    color: 'black',
     fontFamily: 'Rubik',
     textTransform: 'uppercase',
-    letterSpacing: -1, 
-    marginBottom: 5,
+    letterSpacing: -0.5,
+    marginBottom: 2,
   },
   tabLabelFocused: {
-    color: 'white', 
-    fontWeight: 'bold', 
+    color: 'white',
+    fontWeight: 'bold',
     fontFamily: 'Rubik',
-    textTransform: 'uppercase', 
-    fontSize: 10,
-    marginBottom: 5,
+    textTransform: 'uppercase',
+    fontSize: width * 0.03, // Responsive font size
+    marginBottom: 2,
   },
 });
