@@ -1,17 +1,26 @@
 import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router'; // Import the router hook
 
-const Button: React.FC = ({name}) => {
+interface ButtonProps {
+  name: string;
+  route: string; // Route name to navigate to
+}
+
+const Button: React.FC<ButtonProps> = ({ name, route }) => {
+  const router = useRouter();
+
+  // Function to handle button press
+  const handlePress = () => {
+    router.push(route); // Navigate to the specified route
+  };
+
   return (
-    <SafeAreaView>
-      <TouchableOpacity style={styles.continueButton}>
-        <Text style={styles.text}>
-          {name}
-        </Text>
-      </TouchableOpacity>
-    </SafeAreaView>
-
+    <TouchableOpacity style={styles.continueButton} onPress={handlePress}>
+      <Text style={styles.text}>
+        {name}
+      </Text>
+    </TouchableOpacity>
   );
 };
 
