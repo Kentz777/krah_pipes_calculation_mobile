@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, TouchableOpacity } from 'r
 import Loader from '../components/Loader'; // A
 import Button from '../components/Button';
 
-import cpImage from '../assets/images/screen.png'
+import cpImage from '../assets/images/screen.png';
 
 const Index: React.FC = () => {
   const router = useRouter();
@@ -33,19 +33,12 @@ const Index: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.text}>WELCOME</Text>
-      {/* <Button
-        title="Go to Tabs Index"
-        onPress={() => router.push('/menu')}
-      /> */}
-      <Image style={styles.image}
-        source={cpImage}
-      />
+      <Image style={styles.image} source={cpImage} />
       <Text style={styles.text2}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officia in, rerum ipsam a rem.
       </Text>
-      <Button name='Continue'/>
-    </SafeAreaView >
-
+      <Button name='Continue' route='/menu/' />   
+    </SafeAreaView>
   );
 };
 
@@ -63,16 +56,16 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     marginBottom: 80,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
   },
   image: {
-    marginBottom: 10
+    marginBottom: 10,
   },
   text2: {
     fontSize: 16,
     fontFamily: 'Rubik',
     textAlign: 'center',
     marginBottom: 50,
-    color: 'black'
+    color: 'black',
   },
 });
