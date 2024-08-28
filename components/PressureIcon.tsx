@@ -17,7 +17,7 @@ const PressureIcon: React.FC<{ color: string }> = ({ color = 'black' }) => {
 
   `;
 
-  return <SvgXml xml={svgData} width="32" height="32" />;
+  return <SvgXml xml={svgData} width="100" height="100" />;
 };
 
 export default PressureIcon;
