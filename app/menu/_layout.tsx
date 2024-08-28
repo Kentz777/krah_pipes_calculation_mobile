@@ -68,6 +68,7 @@ export default function TabLayout() {
             ),
           }}
         />
+        
         <Tabs.Screen
           name="links"
           options={{
@@ -85,6 +86,7 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#1C76D2',
   },
   tabLabelContainer: {
     alignItems: 'center',
@@ -93,7 +95,6 @@ const styles = StyleSheet.create({
   tabLabel: {
     fontSize: width * 0.03, // Responsive font size
     color: 'black',
-    fontFamily: 'Rubik',
     textTransform: 'uppercase',
     letterSpacing: -0.5,
     marginBottom: 2,
@@ -101,7 +102,6 @@ const styles = StyleSheet.create({
   tabLabelFocused: {
     color: 'white',
     fontWeight: 'bold',
-    fontFamily: 'Rubik',
     textTransform: 'uppercase',
     fontSize: width * 0.03, // Responsive font size
     marginBottom: 2,

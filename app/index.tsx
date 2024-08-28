@@ -51,6 +51,7 @@ const Index: React.FC = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: '#1C76D2',
   },
   container: {
     flex: 1,
@@ -58,10 +59,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: '5%',
     paddingVertical: '10%',
+    backgroundColor: 'white',
   },
   text: {
     fontSize: width * 0.08, // Responsive font size
-    fontFamily: 'Rubik',
     marginBottom: height * 0.05, // Responsive margin
     fontWeight: '900',
     color: 'black',
@@ -72,7 +73,6 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: width * 0.04, // Responsive font size
-    fontFamily: 'Rubik',
     textAlign: 'center',
     marginBottom: height * 0.05, // Responsive margin
     color: 'black',

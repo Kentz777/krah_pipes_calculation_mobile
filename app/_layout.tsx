@@ -1,4 +1,3 @@
-import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
@@ -9,25 +8,27 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded] = useFonts({
-    Rubik: require('../assets/fonts/Rubik.ttf'),
-  });
-
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+    const loadApp = async () => {
+      await SplashScreen.hideAsync();
+    };
 
-  if (!loaded) {
-    return null;
-  }
+    loadApp();
+  }, []);
 
   return (
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="menu" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+    <Stack>
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="page2" options={{ headerShown: false }} />
+      <Stack.Screen 
+        name="menu" 
+        options={{ 
+          headerShown: false,
+          // This ensures the menu layout is not unmounted when navigating
+          presentation: 'modal',
+        }} 
+      />
+      <Stack.Screen name="+not-found" />
+    </Stack>
   );
 }

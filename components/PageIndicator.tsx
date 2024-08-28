@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
   },
   pageIndicator: {
-    fontFamily: 'Rubik',
     fontSize: 12,
     textAlign: 'center',
     fontWeight: '600'
