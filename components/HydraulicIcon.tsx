@@ -5,7 +5,7 @@ import { SvgXml } from 'react-native-svg';
 const HydraulicIcon: React.FC<{ color: string }> = ({ color = 'black' }) => {
   // SVG data as a string, with the fill attribute set to use the color prop
   const svgData = `
-    <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <rect width="100" height="100" fill="url(#pattern0_192_902)"/>
 <defs>
 <pattern id="pattern0_192_902" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -16,7 +16,7 @@ const HydraulicIcon: React.FC<{ color: string }> = ({ color = 'black' }) => {
 </svg>
   `;
 
-  return <SvgXml xml={svgData} width="32" height="32" />;
+  return <SvgXml xml={svgData} width="100" height="100" />;
 };
 
 export default HydraulicIcon;

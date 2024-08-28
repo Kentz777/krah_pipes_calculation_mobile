@@ -6,7 +6,8 @@ import PageIndicator from '@/components/PageIndicator';
 import CalculatorIcon from '@/components/CalculatorIcon';
 import StormwaterIcon from '@/components/StormwaterIcon';
 import PressureIcon from '@/components/PressureIcon';
-import StructuralIcon from '@/components/PressureIcon';
+import StructuralIcon from '@/components/StructuralIcon';
+import HydraulicIcon from '@/components/HydraulicIcon';
 
 
 
@@ -21,21 +22,21 @@ const Index = () => {
     <View style={styles.container}>
       <View style={{ flexDirection: 'row' }}>
         <View style={{ alignItems: 'center', marginEnd: 5, flex: 1 }}>
-          <CalculationIcon IconComponent={CalculatorIcon} />
+          <CalculationIcon IconComponent={HydraulicIcon} focused={false} />
           <Text>Hydraulic Calculation</Text>
         </View>
         <View style={{ alignItems: 'center', flex: 1 }}>
-          <CalculationIcon IconComponent={StormwaterIcon} />
+          <CalculationIcon IconComponent={StormwaterIcon} focused={false} />
           <Text>Stormwater Retention</Text>
         </View>
       </View>
       <View style={{ flexDirection: 'row' }}>
         <View style={{ alignItems: 'center', marginEnd: 5, flex: 1 }}>
-          <CalculationIcon IconComponent={PressureIcon} />
+          <CalculationIcon IconComponent={PressureIcon} focused={false} />
           <Text>Pressure Pipes</Text>
         </View>
         <View style={{ alignItems: 'center', flex: 1 }}>
-          <CalculationIcon IconComponent={StructuralIcon} />
+          <CalculationIcon IconComponent={StructuralIcon} focused={false} />
           <Text>Quick Structural Calculation</Text>
         </View>
       </View>
@@ -49,7 +50,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#1E1E1E',
   },
   text: {
     fontSize: 20,
