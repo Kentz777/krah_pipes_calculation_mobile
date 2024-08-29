@@ -5,6 +5,7 @@ import React from 'react'
 import PageIndicator from '@/components/PageIndicator';
 import MagazineIcon from '@/components/MagazineIcon';
 import AboutIcon from '@/components/AboutIcon';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -15,6 +16,14 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
 };
 
 const Information = () => {
+  const [fontsLoaded] = useFonts({
+    "Rubik": require("../assets/fonts/Rubik.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>

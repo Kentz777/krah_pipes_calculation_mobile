@@ -4,12 +4,21 @@ import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-n
 import Loader from '../components/Loader'; // A
 import Button from '../components/Button';
 import CustomHeader from '@/components/CustomHeader';
+import { useFonts } from 'expo-font';
+
 
 import pipesImage from '../assets/images/pipes.png'
 
 const { width, height } = Dimensions.get('window');
 
 const Page2: React.FC = () => {
+  const [fontsLoaded] = useFonts({
+    "Rubik": require("../assets/fonts/Rubik.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>

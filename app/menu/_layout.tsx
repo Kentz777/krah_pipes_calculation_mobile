@@ -6,6 +6,7 @@ import BarcodeIcon from '@/components/BarcodeIcon';
 import InfoIcon from '@/components/InfoIcon';
 import LinksIcon from '@/components/LinksIcon';
 import TopNav from '@/components/TopNav';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window'); // Get screen width and height
 
@@ -24,6 +25,14 @@ const TabIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ color: str
 };
 
 export default function TabLayout() {
+  const [fontsLoaded] = useFonts({
+    "Rubik": require("../assets/fonts/Rubik.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <TopNav />

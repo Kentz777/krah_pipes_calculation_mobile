@@ -4,12 +4,21 @@ import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-n
 import Loader from '../components/Loader';
 import Button from '../components/Button';
 import CustomHeader from '@/components/CustomHeader';
+import { useFonts } from 'expo-font';
 
 import cpImage from '../assets/images/screen.png';
 
 const { width, height } = Dimensions.get('window');
 
 const Index: React.FC = () => {
+  const [fontsLoaded] = useFonts({
+    "Rubik": require("../assets/fonts/Rubik.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
+
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
