@@ -1,7 +1,7 @@
 import React from 'react';
 import { SvgXml } from 'react-native-svg';
 
-// BarcodeIcon component
+// PressureIcon component
 const PressureIcon: React.FC<{ color: string }> = ({ color = 'black' }) => {
   // SVG data as a string, with the fill attribute set to use the color prop
   const svgData = `
