@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     fontWeight: 'bold',
     color: 'white',
+    marginTop: height * 0.02
   },
 });
 

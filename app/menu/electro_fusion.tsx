@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     height: '50%',
   },
   iconButton: {
-    alignItems: 'center',
     marginEnd: width * 0.04,
   },
   text: {
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Rubik',
     fontWeight: 'bold',
     color: 'white',
+    marginTop: height * 0.02,
   },
 });
 
