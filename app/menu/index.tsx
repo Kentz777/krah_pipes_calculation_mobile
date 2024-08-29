@@ -7,6 +7,7 @@ import StormwaterIcon from '@/components/StormwaterIcon';
 import PressureIcon from '@/components/PressureIcon';
 import StructuralIcon from '@/components/StructuralIcon';
 import HydraulicIcon from '@/components/HydraulicIcon';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,6 +19,14 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
 };
 
 const Index = () => {
+  const [fontsLoaded] = useFonts({
+    "Rubik": require("../assets/fonts/Rubik.ttf"),
+  })
+
+  if (!fontsLoaded) {
+    return undefined;
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>
