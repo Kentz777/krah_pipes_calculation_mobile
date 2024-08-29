@@ -4,10 +4,10 @@ import CalcIcon from '@/components/CalculatorIcon';
 import BarcodeIcon from '@/components/BarcodeIcon';
 import InfoIcon from '@/components/InfoIcon';
 import LinksIcon from '@/components/LinksIcon';
-import CalculationScreen from '../app/menu/index';
-import ElectroFusionScreen from '../app/menu/electro_fusion';
-import InformationScreen from '../app/menu/information';
-import LinksScreen from '../app/menu/links';
+import CalculationScreen from '../app/(tabs)';
+import ElectroFusionScreen from '../app/(tabs)/electro_fusion';
+import InformationScreen from '../app/(tabs)/information';
+import LinksScreen from '../app/(tabs)/links';
 import { View, Text, StyleSheet, SafeAreaView, Dimensions } from 'react-native';
 
 const Tab = createBottomTabNavigator();

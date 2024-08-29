@@ -21,7 +21,14 @@ type NavButtonProps = {
 
 const NavButton: React.FC<NavButtonProps> = ({ title, IconComponent, route }) => {
   const pathname = usePathname();
-  const isActive = pathname === route;
+  const isActive = 
+    route === '/(calculation)' 
+      ? 
+        pathname.startsWith('calculations') || 
+        pathname.startsWith('/(calculation)/hydraulic_calculation') || 
+        pathname.startsWith('/(calculation)/stormwater_retention') || 
+        pathname === '/'
+      : pathname.startsWith(route);
 
   return (
     <Link href={route} asChild>
@@ -48,7 +55,7 @@ export default function Layout() {
         <Stack.Screen name="links" options={{ headerShown: false }} />
         <Stack.Screen name="information" options={{ headerShown: false }} />
         <Stack.Screen name="electro_fusion" options={{ headerShown: false }} />
-        <Stack.Screen name="(calc)" options={{ headerShown: false }} />
+        <Stack.Screen name="(calculation)" options={{ headerShown: false }} />
       </Stack>
       <View style={styles.bottomNav}>
         <NavButton title="Calculation" IconComponent={CalcIcon} route="/calculations" />
@@ -82,6 +89,7 @@ const styles = StyleSheet.create({
     color: 'black',
     marginTop: 5,
     textAlign: 'center',
+    fontFamily: 'Rubik',
   },
   activeNavLabel: {
     color: 'white',
