@@ -1,15 +1,14 @@
-//Information Page
-import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import React from 'react'
+import React from 'react';
 import PageIndicator from '@/components/PageIndicator';
 import StormwaterIcon from '@/components/StormwaterIcon';
 import PressureIcon from '@/components/PressureIcon';
 import StructuralIcon from '@/components/StructuralIcon';
 import HydraulicIcon from '@/components/HydraulicIcon';
+import { Link } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
-
 
 const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ color: string }> }> = ({ focused, IconComponent }) => {
   return (
@@ -17,15 +16,16 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
   );
 };
 
-const Index = () => {
-  
+const Calculations = () => {
   return (
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>
-        <TouchableOpacity style={styles.iconButton}>
-          <CalculationIcon IconComponent={HydraulicIcon} focused={false} />
-          <Text style={styles.text}>Hydraulic Calculation</Text>
-        </TouchableOpacity>
+        <Link href="/(calc)" asChild>
+          <TouchableOpacity style={styles.iconButton}>
+            <CalculationIcon IconComponent={HydraulicIcon} focused={false} />
+            <Text style={styles.text}>Hydraulic Calculation</Text>
+          </TouchableOpacity>
+        </Link>
         <TouchableOpacity style={styles.secondIconButton}>
           <CalculationIcon IconComponent={StormwaterIcon} focused={false} />
           <Text style={styles.text}>Stormwater Retention</Text>
@@ -44,8 +44,8 @@ const Index = () => {
 
       <PageIndicator pageName="Main Menu" />
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1E1E1E',
-    paddingHorizontal: width * 0.10
+    paddingHorizontal: width * 0.10,
   },
   firstIconContainer: {
     flexDirection: 'row',
-    marginBottom: height * 0.08
+    marginBottom: height * 0.08,
   },
   secondIconContainer: {
     flexDirection: 'row',
@@ -65,19 +65,19 @@ const styles = StyleSheet.create({
   iconButton: {
     alignItems: 'center',
     marginEnd: width * 0.04,
-    flex: 1
+    flex: 1,
   },
   secondIconButton: {
     alignItems: 'center',
-    flex: 1
+    flex: 1,
   },
   text: {
     fontSize: 16,
     fontFamily: 'Rubik',
     fontWeight: 'bold',
     color: 'white',
-    marginTop: height * 0.02
+    marginTop: height * 0.02,
   },
 });
 
-export default Index
+export default Calculations;

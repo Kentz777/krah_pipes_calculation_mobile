@@ -53,6 +53,7 @@ const Index: React.FC = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: '#1C76D2',
   },
   container: {
     flex: 1,
@@ -60,6 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: '5%',
     paddingVertical: '10%',
+    backgroundColor: 'white',
   },
   text: {
     fontSize: width * 0.08, // Responsive font size
