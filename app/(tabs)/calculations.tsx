@@ -6,7 +6,7 @@ import StormwaterIcon from '@/components/StormwaterIcon';
 import PressureIcon from '@/components/PressureIcon';
 import StructuralIcon from '@/components/StructuralIcon';
 import HydraulicIcon from '@/components/HydraulicIcon';
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,28 +18,37 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
 
 const Calculations = () => {
   return (
+    
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>
-        <Link href="/(calc)" asChild>
+        <Link href="/(calculation)" asChild>
           <TouchableOpacity style={styles.iconButton}>
             <CalculationIcon IconComponent={HydraulicIcon} focused={false} />
             <Text style={styles.text}>Hydraulic Calculation</Text>
           </TouchableOpacity>
         </Link>
+
+        <Link href="/(calculation)/stormwater_retention" asChild>
         <TouchableOpacity style={styles.secondIconButton}>
           <CalculationIcon IconComponent={StormwaterIcon} focused={false} />
           <Text style={styles.text}>Stormwater Retention</Text>
         </TouchableOpacity>
+        </Link>
       </View>
+
       <View style={styles.secondIconContainer}>
+      <Link href="/(calculation)/pressure_pipes" asChild>
         <TouchableOpacity style={styles.iconButton}>
           <CalculationIcon IconComponent={PressureIcon} focused={false} />
           <Text style={styles.text}>Pressure Pipes</Text>
         </TouchableOpacity>
+        </Link>
+        <Link href="/(calculation)/quick_structural_calculation" asChild>
         <TouchableOpacity style={styles.secondIconButton}>
           <CalculationIcon IconComponent={StructuralIcon} focused={false} />
           <Text style={styles.text}>Quick Structural Calculation</Text>
         </TouchableOpacity>
+        </Link>
       </View>
 
       <PageIndicator pageName="Main Menu" />
