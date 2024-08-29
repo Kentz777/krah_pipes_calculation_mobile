@@ -8,7 +8,7 @@ const CustomHeader: React.FC = () => {
 
   const handleTabPress = (tab: string) => {
     setActiveTab(tab);
-    // Add any additional logic for tab switching here
+    
   };
 
   return (

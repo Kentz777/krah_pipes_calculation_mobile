@@ -26,7 +26,8 @@ export default function RootLayout() {
   return (
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="menu" options={{ headerShown: false }} />
+        <Stack.Screen name="page2" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
   );

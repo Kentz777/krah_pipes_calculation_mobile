@@ -15,7 +15,7 @@ const Page2: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <CustomHeader />
+    
       <View style={styles.container}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>SOME BIG TEXT</Text>
@@ -25,7 +25,7 @@ const Page2: React.FC = () => {
         </View>
 
         <Image style={styles.image} source={pipesImage} />
-        <Button name='Get Started' route='/menu' />
+        <Button name='Get Started' route='/(tabs)' />
       </View>
     </SafeAreaView>
   );
@@ -34,6 +34,7 @@ const Page2: React.FC = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+    backgroundColor: '#1C76D2',
   },
   container: {
     flex: 1,
@@ -41,6 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: '5%',
     paddingVertical: '10%',
+    backgroundColor: 'white',
   },
   textContainer: {
     marginHorizontal: width * 0.18,
