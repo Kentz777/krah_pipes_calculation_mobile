@@ -5,6 +5,7 @@ import React from 'react'
 import PageIndicator from '@/components/PageIndicator';
 import BarcodeCalcuIcon from '@/components/BarcodeCalcuIcon';
 import { useFonts } from 'expo-font';
+import { Link, Stack } from 'expo-router';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,11 +26,21 @@ const ElectroFusion = () => {
 
   return (
     <View style={styles.container}>
+       <Stack
+        screenOptions={{
+          headerShown: true,
+        }}
+      >
+        <Stack.Screen name="(barcode)" options={{ headerShown: false }} />
+      </Stack>
+      
       <View style={styles.firstIconContainer}>
+      <Link href="/(barcode)" asChild>
         <TouchableOpacity style={styles.iconButton}>
           <CalculationIcon IconComponent={BarcodeCalcuIcon} focused={false} />
           <Text style={styles.text}>Barcode</Text>
         </TouchableOpacity>
+        </Link>
       </View>
 
       <PageIndicator pageName="Main Menu" />
@@ -40,8 +51,6 @@ const ElectroFusion = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#1E1E1E',
     paddingHorizontal: width * 0.10

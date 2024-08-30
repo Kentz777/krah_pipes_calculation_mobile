@@ -27,36 +27,46 @@ const Calculations = () => {
   }
 
   return (
-    
     <View style={styles.container}>
+      <Stack
+        screenOptions={{
+          headerShown: true,
+        }}
+      >
+        <Stack.Screen name="(hydraulic_calculation)" options={{ headerShown: true }} />
+        <Stack.Screen name="stormwater_retention" options={{ headerShown: true }} />
+        <Stack.Screen name="pressure_pipes" options={{ headerShown: false }} />
+        <Stack.Screen name="quick_structural_calculation" options={{ headerShown: false }} />
+      </Stack>
+      
       <View style={styles.firstIconContainer}>
-        <Link href="/(calculation)" asChild>
+        <Link href="/(hydraulic_calculation)" asChild>
           <TouchableOpacity style={styles.iconButton}>
             <CalculationIcon IconComponent={HydraulicIcon} focused={false} />
             <Text style={styles.text}>Hydraulic Calculation</Text>
           </TouchableOpacity>
         </Link>
 
-        <Link href="/(calculation)/stormwater_retention" asChild>
-        <TouchableOpacity style={styles.secondIconButton}>
-          <CalculationIcon IconComponent={StormwaterIcon} focused={false} />
-          <Text style={styles.text}>Stormwater Retention</Text>
-        </TouchableOpacity>
+        <Link href="/(stormwater_retention)" asChild>
+          <TouchableOpacity style={styles.secondIconButton}>
+            <CalculationIcon IconComponent={StormwaterIcon} focused={false} />
+            <Text style={styles.text}>Stormwater Retention</Text>
+          </TouchableOpacity>
         </Link>
       </View>
 
       <View style={styles.secondIconContainer}>
-      <Link href="/(calculation)/pressure_pipes" asChild>
-        <TouchableOpacity style={styles.iconButton}>
-          <CalculationIcon IconComponent={PressureIcon} focused={false} />
-          <Text style={styles.text}>Pressure Pipes</Text>
-        </TouchableOpacity>
+        <Link href="/(pressure_pipes)" asChild>
+          <TouchableOpacity style={styles.iconButton}>
+            <CalculationIcon IconComponent={PressureIcon} focused={false} />
+            <Text style={styles.text}>Pressure Pipes</Text>
+          </TouchableOpacity>
         </Link>
-        <Link href="/(calculation)/quick_structural_calculation" asChild>
-        <TouchableOpacity style={styles.secondIconButton}>
-          <CalculationIcon IconComponent={StructuralIcon} focused={false} />
-          <Text style={styles.text}>Quick Structural Calculation</Text>
-        </TouchableOpacity>
+        <Link href="/(quick_structural_calculation)" asChild>
+          <TouchableOpacity style={styles.secondIconButton}>
+            <CalculationIcon IconComponent={StructuralIcon} focused={false} />
+            <Text style={styles.text}>Quick Structural Calculation</Text>
+          </TouchableOpacity>
         </Link>
       </View>
 
