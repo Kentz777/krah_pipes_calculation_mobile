@@ -56,6 +56,7 @@ export default function Layout() {
         <Stack.Screen name="information" options={{ headerShown: false }} />
         <Stack.Screen name="electro_fusion" options={{ headerShown: false }} />
         <Stack.Screen name="(calculation)" options={{ headerShown: false }} />
+        <Stack.Screen name="(information)" options={{ headerShown: false }} />
       </Stack>
       <View style={styles.bottomNav}>
         <NavButton title="Calculation" IconComponent={CalcIcon} route="/calculations" />
