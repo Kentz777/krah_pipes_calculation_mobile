@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react'
 import PageIndicator from '@/components/PageIndicator';
 import BarcodeCalcuIcon from '@/components/BarcodeCalcuIcon';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -14,6 +15,13 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
 };
 
 const ElectroFusion = () => {
+  const [loaded] = useFonts({
+    Rubik: require('../../assets/fonts/Rubik.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <View style={styles.container}>
@@ -23,7 +31,7 @@ const ElectroFusion = () => {
           <Text style={styles.text}>Barcode</Text>
         </TouchableOpacity>
       </View>
-      
+
       <PageIndicator pageName="Main Menu" />
     </View>
   )

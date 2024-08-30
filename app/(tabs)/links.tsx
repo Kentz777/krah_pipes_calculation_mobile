@@ -8,6 +8,7 @@ import WebsiteIcon from '@/components/WebsiteIcon';
 import InstagramIcon from '@/components/InstagramIcon';
 import LinkedInIcon from '@/components/LinkedInIcon';
 import YouTubeIcon from '@/components/YouTubeIcon';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -24,7 +25,14 @@ const openWebsite = (url: string) => {
 };
 
 const Links = () => {
-  
+  const [loaded] = useFonts({
+    Rubik: require('../../assets/fonts/Rubik.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
   },
   thirdIconContainer: {
     flexDirection: 'row',
-    
+
   },
   iconButton: {
     alignItems: 'center',
