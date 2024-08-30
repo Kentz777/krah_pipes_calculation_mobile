@@ -28,11 +28,13 @@ const Information = () => {
   return (
     <View style={styles.container}>
       <View style={styles.firstIconContainer}>
+      <Link href="/(magazine)" asChild>
         <TouchableOpacity style={styles.iconButton}>
           <CalculationIcon IconComponent={MagazineIcon} focused={false} />
           <Text style={styles.text}>Magazine</Text>
         </TouchableOpacity>
-        <Link href="/(information)" asChild>
+        </Link>
+        <Link href="/(about)" asChild>
           <TouchableOpacity style={styles.secondIconButton}>
             <CalculationIcon IconComponent={AboutIcon} focused={false} />
             <Text style={styles.text}>About</Text>

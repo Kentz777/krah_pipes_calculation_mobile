@@ -1,14 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'expo-router';
-import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions } from 'react-native';
-import Loader from '../components/Loader'; // A
-import Button from '../components/Button';
-import CustomHeader from '@/components/CustomHeader';
+import { useRouter, usePathname } from 'expo-router';
+import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
-
-import pipesImage from '../assets/images/pipes.png'
+import pipesImage from '../assets/images/pipes.png';
+import Button from '@/components/Button';
 
 const { width, height } = Dimensions.get('window');
+
+const TabNavigation: React.FC = () => {
+  const router = useRouter();
+  const pathname = usePathname(); 
+  const [activeTab, setActiveTab] = useState('');
+
+  useEffect(() => {
+    if (pathname === '/index') {
+      setActiveTab('PAGE 1');
+    } else if (pathname === '/page2') {
+      setActiveTab('PAGE 2');
+    }
+  }, [pathname]); 
+
+  const handleTabPress = (tabName: string) => {
+    if (tabName === 'PAGE 1') {
+      router.push('/');
+    } else if (tabName === 'PAGE 2') {
+      router.push('/page2');
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.tabContainer}>
+      <TouchableOpacity
+        style={[styles.tab, activeTab === 'PAGE 1' && styles.activeTab]}
+        onPress={() => handleTabPress('PAGE 1')}
+      >
+        <Text style={[styles.tabText, activeTab === 'PAGE 1' && styles.activeTabText]}>PAGE 1</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.tab, activeTab === 'PAGE 2' && styles.activeTab]}
+        onPress={() => handleTabPress('PAGE 2')}
+      >
+        <Text style={[styles.tabText, activeTab === 'PAGE 2' && styles.activeTabText]}>PAGE 2</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
 
 const Page2: React.FC = () => {
   const [loaded] = useFonts({
@@ -21,7 +57,7 @@ const Page2: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-
+      <TabNavigation />
       <View style={styles.container}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>SOME BIG TEXT</Text>
@@ -29,7 +65,6 @@ const Page2: React.FC = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officia in, rerum ipsam a rem.
           </Text>
         </View>
-
         <Image style={styles.image} source={pipesImage} />
         <Button name='Get Started' route='/(tabs)' />
       </View>
@@ -71,9 +106,30 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.04, // Responsive margin
     color: 'black',
   },
+  tabContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#1E1E1E',
+    paddingTop: '8%',
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    paddingVertical: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+  },
+  activeTab: {
+    borderBottomColor: '#F1BD15',
+  },
+  tabText: {
+    color: 'white',
+    fontFamily: 'Rubik',
+    fontSize: 16,
+  },
+  activeTabText: {
+    fontWeight: 'bold',
+    color: '#F1BD15',
+  },
 });
 
 export default Page2;
-
-
-
