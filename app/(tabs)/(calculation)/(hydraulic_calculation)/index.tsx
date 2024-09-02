@@ -43,13 +43,14 @@ const Index = () => {
           </View>
           <Text style={styles.formText}>Working Roughness: [kb]</Text>
           <View style={styles.cardContainer}>
-            <DropdownInputWorkingRoughness 
-             placeholder="Select or enter water type..."
-             onValueChange={(value) => value}
-                 />
+            <DropdownInputWorkingRoughness
+              placeholder="Select or enter water type..."
+              onValueChange={(value) => value}
+            />
           </View>
         </View>
       </View>
+      <PageIndicator pageName='Hydraulic Calculation' />
     </View>
   );
 };
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     backgroundColor: "white",
+    flex: 1,
   },
   formContainer: {
     margin: 25,
