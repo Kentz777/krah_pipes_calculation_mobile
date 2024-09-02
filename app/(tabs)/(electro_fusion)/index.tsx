@@ -9,6 +9,5 @@ const index = () => {
   )
 }
 
-export default index
 
-const styles = StyleSheet.create({})
+export default index
