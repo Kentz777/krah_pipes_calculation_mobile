@@ -1,14 +1,59 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { StyleSheet, Text, View, Dimensions, ScrollView } from 'react-native';
+import React, { useState } from 'react';
 import PageIndicator from '@/components/PageIndicator';
+import NumericInput from "@/components/forms/NumericInput";
+import RangeSlider from "@/components/forms/RangeSlider";
+
+const { width, height } = Dimensions.get('window');
 
 const page2 = () => {
+  const [flowRate, setFlowRate] = useState('');
+  const [flowRate1, setFlowRate1] = useState('');
 
   return (
     <View style={styles.container}>
-      <Text>page calc 2</Text>
+      <View style={styles.outputContainer}>
+        <View style={styles.outputMarginContainer}>
+          <Text style={styles.textHeader}>Internal Diameter</Text>
+          <Text style={styles.textHeader}>DN/ID:</Text>
+        </View>
+        <Text style={styles.outputText}>{'1800[mm]'}</Text>
+      </View>
+      <View style={styles.formMainContainer}>
+        <ScrollView>
+          <View style={styles.formContainer}>
+            <View style={styles.marginContainer}>
+              <Text style={styles.formText}>Flow rate:[I/s]</Text>
+              <View style={styles.cardContainer}>
+                <NumericInput
+                  value={flowRate}
+                  onChange={setFlowRate}
+                  placeholder="Enter Flow rate value..."
+                />
+              </View>
+            </View>
+            <View style={styles.marginContainer}>
+              <Text style={styles.formText}>Flow rate:[m³/h]</Text>
+              <View style={styles.cardContainer}>
+                <NumericInput
+                  value={flowRate1}
+                  onChange={setFlowRate1}
+                  placeholder="Enter Flow rate value..."
+                />
+              </View>
+            </View>
+            <View style={styles.marginContainer}>
+              <Text style={styles.formText}>Filling Height:</Text>
+              <View style={styles.cardContainer}>
+                <RangeSlider min={0} max={100} />
+              </View>
+              <Text style={styles.infoText}>Value must be between 0 to 100%</Text>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
       <PageIndicator pageName='Hydraulic Calculation' />
-    </View>
+    </View >
   )
 }
 
@@ -17,5 +62,54 @@ export default page2
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  outputContainer: {
+    backgroundColor: '#1E1E1E',
+    paddingHorizontal: width * 0.06,
+    paddingVertical: height * 0.02,
+    marginHorizontal: width * 0.06,
+    marginVertical: height * 0.02,
+    borderRadius: 30
+  },
+  outputMarginContainer: {
+    marginBottom: height * 0.02,
+  },
+  textHeader: {
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  outputText: {
+    color: '#F1BD15',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: height * 0.02,
+  },
+  formMainContainer: {
+    backgroundColor: "#D9D9D9",
+  },
+  formContainer: {
+    marginHorizontal: width * 0.06,
+    marginVertical: height * 0.025
+  },
+  marginContainer: {
+    marginBottom: height * 0.04,
+  },
+  formText: {
+    fontSize: 14,
+    fontWeight: 'bold'
+  },
+  cardContainer: {
+    backgroundColor: "white",
+    borderRadius: 5,
+    // marginTop: 5,
+    // marginBottom: 5,
+    marginVertical: height * 0.005
+  },
+  infoText: {
+    fontSize: 8,
+    fontWeight: '600',
+    color: 'red',
   }
 })
