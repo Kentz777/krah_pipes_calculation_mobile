@@ -3,7 +3,6 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { View, Text} from 'react-native';
 
@@ -12,6 +11,7 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded] = useFonts({
     Rubik: require('../assets/fonts/Rubik.ttf'),
+    Montserrat: require('../assets/fonts/Montserrat-Regular.ttf'),
   });
 
   useEffect(() => {

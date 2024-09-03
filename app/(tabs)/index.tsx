@@ -5,19 +5,10 @@ import YouTubeIcon from '@/components/YouTubeIcon';
 import HomeSearchIcon from '@/components/HomeSearchIcon';
 import HandDownIcon from '@/components/HandDownIcon';
 import PageIndicator from '@/components/PageIndicator';
-import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
 const Index = () => {
-  const [loaded] = useFonts({
-    Rubik: require('../../assets/fonts/Rubik.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
