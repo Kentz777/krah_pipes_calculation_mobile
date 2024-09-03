@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import React from 'react'
 import { useFonts } from 'expo-font';
-import NavPageIndicator from '@/components/NavPageIndicator';
+import PageIndicator from '@/components/PageIndicator';
 
 import krahImage from '../../../assets/images/krah_logo_about.png';
 
@@ -33,7 +33,7 @@ const index = () => {
         </Text>
       </View>
 
-      <NavPageIndicator pageName={'About'} />
+      <PageIndicator pageName={'About'} />
 
     </View>
   )
