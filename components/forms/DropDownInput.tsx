@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Modal, FlatList, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, Modal, FlatList, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface DropdownInputProps {
@@ -10,51 +10,21 @@ interface DropdownInputProps {
 const DropdownInput: React.FC<DropdownInputProps> = ({ placeholder = 'Select...', onValueChange }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [value, setValue] = useState('');
-  const [mode, setMode] = useState<'water' | 'free'>('water');
-  const options = ['Water', 'Free Entry'];
+
+  const options = ['Water']; // Example options, adjust as needed
 
   const handleSelect = (item: string) => {
-    if (item === 'Free Entry') {
-      setMode('free');
-      setValue('');
-      onValueChange('');
-    } else {
-      setMode('water');
-      setValue(item);
-      onValueChange(item);
-    }
+    setValue(item);
+    onValueChange(item); // Pass the selected value as string
     setModalVisible(false);
-  };
-
-  const handleFreeEntryChange = (text: string) => {
-    setValue(text);
-    onValueChange(text);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity 
-        style={styles.inputContainer} 
-        onPress={() => {
-          if (mode === 'water') {
-            setModalVisible(true);
-          }
-        }}
-      >
-        {mode === 'free' ? (
-          <TextInput
-            style={styles.freeEntryInput}
-            value={value}
-            onChangeText={handleFreeEntryChange}
-            placeholder="Enter value..."
-            onFocus={() => setModalVisible(false)} // Prevent the modal from reopening on focus
-            onBlur={() => {}} // Do nothing on blur to keep the value
-          />
-        ) : (
-          <Text style={value ? styles.inputText : styles.placeholder}>
-            {value || placeholder}
-          </Text>
-        )}
+      <TouchableOpacity style={styles.inputContainer} onPress={() => setModalVisible(true)}>
+        <Text style={value ? styles.inputText : styles.placeholder}>
+          {value || placeholder}
+        </Text>
         <Ionicons name="chevron-down" size={24} color="#000" />
       </TouchableOpacity>
 
@@ -69,8 +39,8 @@ const DropdownInput: React.FC<DropdownInputProps> = ({ placeholder = 'Select...'
             <FlatList
               data={options}
               renderItem={({ item }) => (
-                <TouchableOpacity 
-                  style={styles.option} 
+                <TouchableOpacity
+                  style={styles.option}
                   onPress={() => handleSelect(item)}
                 >
                   <Text>{item}</Text>
@@ -112,11 +82,6 @@ const styles = StyleSheet.create({
   placeholder: {
     color: '#999',
     flex: 1,
-    textAlign: 'center',
-  },
-  freeEntryInput: {
-    flex: 1,
-    color: '#000',
     textAlign: 'center',
   },
   modalContainer: {

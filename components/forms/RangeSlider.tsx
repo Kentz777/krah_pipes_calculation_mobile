@@ -6,7 +6,7 @@ interface RangeSliderProps {
   min: number;
   max: number;
   step?: number;
-  initialValue?: number;
+  initialValue?: number; // Handle undefined case
   onValueChange?: (value: number) => void;
 }
 
@@ -23,7 +23,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 
   useEffect(() => {
     validateAndSetValue(initialValue);
-  }, []);
+  }, [initialValue]); // Update when initialValue changes
 
   const validateAndSetValue = (newValue: number) => {
     if (newValue < min) {
@@ -58,7 +58,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   };
 
   return (
-        <View style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.row}>
         <View style={styles.sliderContainer}>
           <Slider

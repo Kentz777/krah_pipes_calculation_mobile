@@ -7,7 +7,7 @@ interface NumericInputProps {
   placeholder?: string;
 }
 
-const NumericInput: React.FC<NumericInputProps> = ({ value, onChange, placeholder }) => {
+const NumericInput: React.FC<NumericInputProps> = ({ value = '', onChange, placeholder }) => {
   const handleChange = (text: string) => {
     // Only allow numeric values
     const numericValue = text.replace(/[^0-9]/g, '');
