@@ -4,33 +4,32 @@ import { Ionicons } from '@expo/vector-icons';
 
 interface DropdownInputProps {
   placeholder?: string;
-  onValueChange: (value: string) => void;
+  onValueChange: (value: number) => void; // Changed to number
 }
 
 const DropdownInputWorkingRoughness: React.FC<DropdownInputProps> = ({ placeholder = 'Select...', onValueChange }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   const [mode, setMode] = useState<'water' | 'free'>('water');
 
-  // Updated options list
-  const options = ['Concrete', 'Steel', 'Kra-pressure-pipes-kb', 'Free Entry'];
+  const options = [
+    { label: 'Concrete kb', kb: 0.15 },
+    { label: 'Steel', kb: 0.01 },
+    { label: 'Krah-pressure-pipes', kb: 0.05 },
+    { label: 'Free Entry', kb: 0 },
+  ];
 
-  const handleSelect = (item: string) => {
-    if (item === 'Free Entry') {
-      setMode('free');
-      setValue('');
-      onValueChange('');
-    } else {
-      setMode('water');
-      setValue(item);
-      onValueChange(item);
-    }
+  const handleSelect = (item: { label: string; kb: number }) => {
+    setMode(item.label === 'Free Entry' ? 'free' : 'water');
+    setValue(item.label);
+    onValueChange(item.kb);
     setModalVisible(false);
   };
 
   const handleFreeEntryChange = (text: string) => {
+    // Handle free entry input
     setValue(text);
-    onValueChange(text);
+    onValueChange(parseFloat(text));
   };
 
   return (
@@ -49,8 +48,8 @@ const DropdownInputWorkingRoughness: React.FC<DropdownInputProps> = ({ placehold
             value={value}
             onChangeText={handleFreeEntryChange}
             placeholder="Enter value..."
-            onFocus={() => setModalVisible(false)} // Prevent the modal from reopening on focus
-            onBlur={() => {}} // Do nothing on blur to keep the value
+            keyboardType="numeric"
+            onFocus={() => setModalVisible(false)}
           />
         ) : (
           <Text style={value ? styles.inputText : styles.placeholder}>
@@ -75,10 +74,10 @@ const DropdownInputWorkingRoughness: React.FC<DropdownInputProps> = ({ placehold
                   style={styles.option} 
                   onPress={() => handleSelect(item)}
                 >
-                  <Text>{item}</Text>
+                  <Text>{item.label}</Text>
                 </TouchableOpacity>
               )}
-              keyExtractor={(item) => item}
+              keyExtractor={(item) => item.label}
             />
             <TouchableOpacity style={styles.closeButton} onPress={() => setModalVisible(false)}>
               <Text style={styles.closeButtonText}>Close</Text>
