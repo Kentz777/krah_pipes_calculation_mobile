@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import React from 'react'
-import { useFonts } from 'expo-font';
 import PageIndicator from '@/components/PageIndicator';
 
 import krahImage from '../../../assets/images/krah_logo_about.png';
@@ -8,14 +7,6 @@ import krahImage from '../../../assets/images/krah_logo_about.png';
 const { width, height } = Dimensions.get('window');
 
 const index = () => {
-  const [loaded] = useFonts({
-    Montserrat: require('../../../assets/fonts/Montserrat-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={krahImage} />

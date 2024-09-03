@@ -6,6 +6,7 @@ import BarcodeIcon from '@/components/BarcodeIcon';
 import InfoIcon from '@/components/InfoIcon';
 import LinksIcon from '@/components/LinksIcon';
 import TopNav from '@/components/TopNav';
+import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -21,13 +22,21 @@ type NavButtonProps = {
 
 const NavButton: React.FC<NavButtonProps> = ({ title, IconComponent, route }) => {
   const pathname = usePathname();
-  const isActive = 
-    route === '/(calculation)' 
-      ? 
-        pathname.startsWith('calculations') || 
-        pathname.startsWith('/(calculation)/hydraulic_calculation') || 
-        pathname.startsWith('/(calculation)/stormwater_retention') || 
-        pathname === '/'
+  const [loaded] = useFonts({
+    Rubik: require('../../assets/fonts/Rubik.ttf'),
+    Montserrat: require('../../assets/fonts/Montserrat-Regular.ttf')
+  });
+
+  if (!loaded) {
+    return null;
+  }
+  const isActive =
+    route === '/(calculation)'
+      ?
+      pathname.startsWith('calculations') ||
+      pathname.startsWith('/(calculation)/hydraulic_calculation') ||
+      pathname.startsWith('/(calculation)/stormwater_retention') ||
+      pathname === '/'
       : pathname.startsWith(route);
 
   return (

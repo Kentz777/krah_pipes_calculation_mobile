@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'expo-router';
 import { View, Text, StyleSheet, SafeAreaView, Image, Dimensions, TouchableOpacity } from 'react-native';
-import { useFonts } from 'expo-font';
 import cpImage from '../assets/images/screen.png';
 import Button from '@/components/Button';
 
@@ -51,14 +50,6 @@ const TabNavigation: React.FC = () => {
 };
 
 const Index: React.FC = () => {
-  const [loaded] = useFonts({
-    Rubik: require('../assets/fonts/Rubik.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <SafeAreaView style={styles.safeArea}>
       <TabNavigation />

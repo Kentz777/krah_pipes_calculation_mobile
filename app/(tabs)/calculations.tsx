@@ -7,7 +7,6 @@ import PressureIcon from '@/components/PressureIcon';
 import StructuralIcon from '@/components/StructuralIcon';
 import HydraulicIcon from '@/components/HydraulicIcon';
 import { Link, Stack } from 'expo-router';
-import { useFonts } from 'expo-font';
 
 const { width, height } = Dimensions.get('window');
 
@@ -18,14 +17,6 @@ const CalculationIcon: React.FC<{ focused: boolean; IconComponent: React.FC<{ co
 };
 
 const Calculations = () => {
-  const [loaded] = useFonts({
-    Rubik: require('../../assets/fonts/Rubik.ttf'),
-  });
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
     <View style={styles.container}>
       <Stack
