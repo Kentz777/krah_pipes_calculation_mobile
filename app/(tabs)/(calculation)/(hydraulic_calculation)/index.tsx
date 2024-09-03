@@ -4,6 +4,7 @@ import RangeSlider from "@/components/forms/RangeSlider";
 import DropdownInput from "@/components/forms/DropDownInput";
 import NumericInput from "@/components/forms/NumericInput";
 import DropdownInputWorkingRoughness from "@/components/forms/DropDownInputWorkingRoughness";
+import PageIndicator from "@/components/PageIndicator";
 
 const { PI, sqrt, log, acos } = Math;
 
@@ -36,8 +37,8 @@ function calculateFlowParameters(
     -2 *
     log10(
       (2.51 * kv * 1e-6) /
-        (diameter_m * sqrt(2 * g * diameter_m * slope / 1000)) +
-        kb * 1e-3 / (3.71 * diameter_m)
+      (diameter_m * sqrt(2 * g * diameter_m * slope / 1000)) +
+      kb * 1e-3 / (3.71 * diameter_m)
     ) *
     sqrt(2 * g * diameter_m * slope / 1000);
 
@@ -92,13 +93,13 @@ const Index: React.FC = () => {
         <View style={styles.container}>
           <Text style={styles.headText}>According to ATV A110:</Text>
           <View style={styles.resultsContainer}>
-          <Text style={styles.resultText}>Flow Speed:</Text>
-          <Text>100%: {flowSpeed.full} m/s</Text>
-          <Text>{fillingHeight}%: {flowSpeed.partial} m/s</Text>
-          <Text style={styles.resultText}>Flow Rate:</Text>
-          <Text>100%: {flowRate.full} L/s</Text>
-          <Text>{fillingHeight}%: {flowRate.partial} L/s</Text>
-        </View>
+            <Text style={styles.resultText}>Flow Speed:</Text>
+            <Text>100%: {flowSpeed.full} m/s</Text>
+            <Text>{fillingHeight}%: {flowSpeed.partial} m/s</Text>
+            <Text style={styles.resultText}>Flow Rate:</Text>
+            <Text>100%: {flowRate.full} L/s</Text>
+            <Text>{fillingHeight}%: {flowRate.partial} L/s</Text>
+          </View>
         </View>
         <View style={styles.formMainContainer}>
           <View style={styles.formContainer}>
@@ -144,9 +145,9 @@ const Index: React.FC = () => {
             </View>
           </View>
         </View>
-        
+        <PageIndicator pageName='Hydraulic Calculation' />
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 };
 
